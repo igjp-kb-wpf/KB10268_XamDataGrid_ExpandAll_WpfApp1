@@ -28,21 +28,6 @@ public partial class MainWindow : Window
     private void button1_Click(object sender, RoutedEventArgs e)
     {
         // XamDataGridに表示されているレコードコレクションを全展開する。
-        ExpandAll(xamDataGrid1.ViewableRecords);
-    }
-
-    private void ExpandAll(ViewableRecordCollection records)
-    {
-        // 各レコードに関して
-        foreach(var record in records)
-        {
-            // 展開する
-            record.IsExpanded = true;
-            // 子レコードがある場合は、子レコードのコレクションを渡してExpandAllを再帰的に呼び出す。
-            if (record.HasChildren)
-            {
-                ExpandAll(record.ViewableChildRecords);
-            }
-        }
+        xamDataGrid1.Records.ExpandAll(true);
     }
 }
